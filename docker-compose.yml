@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  hello-world-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./hello_world_api/:/src"
