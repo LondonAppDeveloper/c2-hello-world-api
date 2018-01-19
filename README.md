@@ -14,8 +14,6 @@ Course 2 Hello World application backend.
  - Add `install-dev` to Makefile to install `docker-compose`
  - Create `docker-compose.yml` file
  - Run `docker-compose up --build`
- - Test
-
 
 ## Development Steps
 
