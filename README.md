@@ -19,6 +19,8 @@ Course 2 Hello World application backend.
  - Create `views.py` in `hello_world_api/` with hello world view
  - Add `/api/hello_world` url
 
+
+
 ## Development Steps
 
 Setup your environment by running:
