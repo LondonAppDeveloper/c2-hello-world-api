@@ -4,8 +4,8 @@ services:
   hello-world-api:
     build:
       context: .
-      dockerfile: prod.Dockerfile
+      dockerfile: dev.Dockerfile
     ports:
       - "8000:8000"
-    # volumes:
-    #   - ./hello_world_api:/app
+    volumes:
+      - ./hello_world_api:/app
