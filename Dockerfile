@@ -1,4 +1,4 @@
-FROM base.Dockerfile
+FROM python:3.6-alpine
 
 ENV PYTHONUNBUFFERED 1
 RUN apk add --update --no-cache gcc libc-dev linux-headers

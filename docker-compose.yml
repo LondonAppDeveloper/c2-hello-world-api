@@ -4,8 +4,9 @@ services:
   hello-world-api:
     build:
       context: .
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     volumes:
       - ./hello_world_api:/app
+    command: python manage.py runserver 0.0.0.0:8000
