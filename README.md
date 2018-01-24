@@ -10,7 +10,7 @@ Course 2 Hello World application backend.
  - Create Django project `django-admin.py startproject hello_world_api`
  - Add `*.sqlite3` to `.gitignore`
 
- - Create `Dockerfile.dev`
+ - Create `Dockerfile`
  - Add `install-dev` to Makefile to install `docker-compose`
  - Create `docker-compose.yml` file
  - Run `docker-compose up --build`
@@ -19,7 +19,7 @@ Course 2 Hello World application backend.
  - Create `views.py` in `hello_world_api/` with hello world view
  - Add `/api/hello_world` url
 
-
+- Setup Terraform
 
 ## Development Steps
 

@@ -1,9 +1,10 @@
 FROM python:3.6-alpine
 
 ENV PYTHONUNBUFFERED 1
-RUN apk add --update --no-cache gcc libc-dev linux-headers
 COPY ./requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
+RUN apk add --update --no-cache --virtual .build-deps gcc libc-dev linux-headers \
+    && pip install -r /requirements.txt \
+    && apk del .build-deps
 RUN mkdir /app
 WORKDIR /app
 COPY hello_world_api/ /app/
