@@ -22,7 +22,15 @@ Course 2 Hello World application backend.
  - Setup Terraform with remote state
  - Create ECS Cluster
  - Create EC2 containers
- - Create ALB 
+ - Create ALB
+
+## First Time Deployment
+
+Create S3 Bucket:
+
+```
+aws s3 mb --region us-east-1 s3://c2-state-files
+```
 
 ## Development Steps
 
