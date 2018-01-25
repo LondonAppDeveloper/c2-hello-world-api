@@ -15,3 +15,47 @@ provider "aws" {
 resource "aws_ecs_cluster" "main" {
   name = "${var.prefix}-cluster"
 }
+
+resource "aws_instance" "web" {
+  ami           = "ami-28456852"
+  instance_type = "t2.micro"
+
+  key_name = "${var.ssh_key_name}"
+
+  user_data = <<EOF
+#!/bin/bash
+echo ECS_CLUSTER=${aws_ecs_cluster.main.name} >> /ecs/ecs/ecs.config
+EOF
+  tags {
+    Name = "${var.prefix}-hello-world-ecs"
+  }
+}
+
+resource "aws_iam_role" "ecs_host_role" {
+  name = "${var.prefix}-ecs-host-role"
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "ecs_host_role_attachment" {
+  role        = "${aws_iam_role.ecs_host_role.name}"
+  policy_arn  = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+}
+
+resource "aws_iam_instance_profile" "ecs_host" {
+  name = "${var.prefix}-ecs-host-instance-profile"
+  role = "${aws_iam_role.ecs_host_role.name}"
+}
