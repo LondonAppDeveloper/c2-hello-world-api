@@ -25,7 +25,7 @@ resource "aws_instance" "web" {
 
   user_data = <<EOF
 #!/bin/bash
-echo ECS_CLUSTER=${aws_ecs_cluster.main.name} >> /ecs/ecs/ecs.config
+echo ECS_CLUSTER=${aws_ecs_cluster.main.name} >> /etc/ecs/ecs.config
 EOF
   tags {
     Name = "${var.prefix}-hello-world-ecs"
