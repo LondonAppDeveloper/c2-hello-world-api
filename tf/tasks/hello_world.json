@@ -1,0 +1,14 @@
+[
+  {
+    "name": "hello-world-api",
+    "image": "londonappdev/c2-hello-world-api:latest",
+    "memory": 32,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 8000,
+        "hostPort": 80
+      }
+    ]
+  }
+]

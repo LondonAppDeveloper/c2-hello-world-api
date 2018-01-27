@@ -66,4 +66,16 @@ resource "aws_security_group" "ecs_ssh_access" {
     cidr_blocks = ["0.0.0.0/0"]
     description = "SSH Access"
   }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "HTTP Access"
+  }
+}
+
+output "ec2_instance_hostname" {
+  value = "${aws_instance.ecs_host.public_dns}"
 }
