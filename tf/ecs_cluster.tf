@@ -16,7 +16,7 @@ resource "aws_ecs_cluster" "main" {
   name = "${var.prefix}-cluster"
 }
 
-resource "aws_instance" "web" {
+resource "aws_instance" "ecs_host" {
   ami             = "ami-28456852"
   instance_type   = "t2.micro"
   key_name        = "${var.ssh_key_name}"
