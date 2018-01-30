@@ -1,4 +1,4 @@
-# C2 Hello World
+# C2 Hello World API
 
 Course 2 Hello World application backend.
 
