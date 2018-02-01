@@ -28,7 +28,6 @@ Course 2 Hello World application backend.
  - Create ECS Service
  - Create ECS Task
  - Create build and push script
- - Create ALB
 
 ## First Time Deployment
 
@@ -57,5 +56,3 @@ Install dev dependencies:
 ```
 make install-dev
 ```
-
-#ß

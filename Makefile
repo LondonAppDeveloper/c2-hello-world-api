@@ -16,4 +16,4 @@ build: ## Build docker container.
 push: ## Push docker container to ECR.
 	@docker push $(DOCKER_HUB_USER)/c2-hello-world-api:latest
 
-.PHONY: env install install-dev
+.PHONY: env install install-dev build push
