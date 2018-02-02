@@ -7,7 +7,7 @@ RUN apk add --update --no-cache --virtual .build-deps gcc libc-dev linux-headers
     && apk del .build-deps
 RUN mkdir /app
 WORKDIR /app
-COPY hello_world_api/ /app/
+COPY ./app/ /app
 ENV PATH="/app:${PATH}"
 
 RUN adduser -D user
