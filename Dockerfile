@@ -12,4 +12,4 @@ ENV PATH="/app:${PATH}"
 
 RUN adduser -D user
 USER user
-CMD ["uwsgi", "--http", ":8000", "--plugin", "python", "--workers", "4", "--chdir", "/app", "-w", "hello_world_api.wsgi"]
+CMD ["uwsgi", "--http", ":8000", "--plugin", "python", "--workers", "4", "--chdir", "/app", "-w", "app.wsgi"]
