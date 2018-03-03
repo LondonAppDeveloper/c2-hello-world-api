@@ -2,9 +2,10 @@ FROM python:3.6-alpine
 
 ENV PYTHONUNBUFFERED 1
 COPY ./requirements.txt /requirements.txt
-RUN apk add --update --no-cache --virtual .build-deps gcc libc-dev linux-headers \
-    && pip install -r /requirements.txt \
-    && apk del .build-deps
+RUN apk add --update --no-cache --virtual .build-deps \
+      gcc libc-dev linux-headers && \
+    pip install -r /requirements.txt && \
+    apk del .build-deps
 RUN mkdir /app
 WORKDIR /app
 COPY ./app/ /app
