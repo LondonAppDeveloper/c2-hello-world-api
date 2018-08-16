@@ -1,0 +1,15 @@
+sudo: required
+
+language: python
+
+python:
+  - "3.7"
+
+services:
+  - docker
+
+before_install:
+  - docker build -t c2/hello-world .
+
+script:
+  - docker run c2/hello-world python manage.py test

@@ -9,4 +9,7 @@ push: ## Push docker container to docker hub
 start: ## Start the development server
 	@docker-compose up
 
+deploy: ## Deploy TF
+	@docker run
+
 .PHONY: build push
