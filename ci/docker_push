@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker tag c2/hello-world-api $DOCKER_USERNAME/c2-hello-world-api
 docker push $DOCKER_USERNAME/c2-hello-world-api
