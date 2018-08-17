@@ -12,4 +12,5 @@ before_install:
   - docker build -t c2/hello-world .
 
 script:
+  - ./ci/test.sh
   - docker run c2/hello-world python manage.py test
