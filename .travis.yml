@@ -9,6 +9,7 @@ jobs:
       name: "Unit Tests"
       script: bash ./ci/test
     - stage: "Build"
+      if: branch = master AND type = push
       name: "Build and Push Docker Image"
       script: bash ./ci/docker_push
     - stage: "Deploy"
