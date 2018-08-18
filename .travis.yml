@@ -19,6 +19,11 @@ jobs:
     - stage: "Build"
       name: "Build and Push Docker Image"
       script: bash ./ci/docker_push
+    - stage: "Deploy"
+      name: "Deploy using Terraform"
+      script: bash ./ci/deploy
+
+
 
 
 # before_install:
