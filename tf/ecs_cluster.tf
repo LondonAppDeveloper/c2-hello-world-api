@@ -4,7 +4,7 @@ resource "aws_ecs_cluster" "main" {
 
 resource "aws_instance" "ecs_host" {
   ami             = "ami-28456852"
-  instance_type   = "t2.micro"
+  instance_type   = "t2.small"
   key_name        = "${var.ssh_key_name}"
   security_groups = ["${aws_security_group.ecs_ssh_access.name}"]
   iam_instance_profile = "${aws_iam_instance_profile.ecs_host.id}"
