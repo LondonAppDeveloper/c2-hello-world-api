@@ -2,16 +2,18 @@
 
 set -e
 
-docker run -it \
-  -v $(pwd)/tf/:/app/ \
-  -w /app/ \
-  -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" \
-  -e "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" \
-  hashicorp/terraform:light init
+TERRAFORM_IMAGE=hashicorp/terraform:0.11.8
 
 docker run -it \
   -v $(pwd)/tf/:/app/ \
   -w /app/ \
   -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" \
   -e "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" \
-  hashicorp/terraform:light apply --auto-approve
+  $TERRAFORM_IMAGE init
+
+docker run -it \
+  -v $(pwd)/tf/:/app/ \
+  -w /app/ \
+  -e "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" \
+  -e "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" \
+  $TERRAFORM_IMAGE apply --auto-approve
