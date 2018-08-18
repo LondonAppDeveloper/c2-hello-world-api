@@ -1,3 +1,5 @@
+language: generic
+
 services:
   - docker
 
@@ -5,7 +7,7 @@ jobs:
   include:
     - stage: "Tests"
       name: "Unit Tests"
-      script: bash ./ci/deploy
+      script: bash ./ci/test
     - stage: "Build"
       name: "Build and Push Docker Image"
       script: bash ./ci/docker_push
