@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker build -t c2/hello-world-api .
+docker run c2/hello-world-api python manage.py test

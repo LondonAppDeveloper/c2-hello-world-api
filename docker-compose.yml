@@ -1,12 +1,14 @@
 version: '3'
 
 services:
-  hello-world-api:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
     volumes:
-      - ./hello_world_api:/app
-    command: python manage.py runserver 0.0.0.0:8000
+      - ./app:/app
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"

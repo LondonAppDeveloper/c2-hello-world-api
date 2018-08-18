@@ -36,23 +36,3 @@ Create S3 Bucket:
 ```
 aws s3 mb --region us-east-1 s3://c2-state-files
 ```
-
-## Development Steps
-
-Setup your environment by running:
-
-```
-make env
-```
-
-Switch to virtual environment:
-
-```
-source env/bin/activate
-```
-
-Install dev dependencies:
-
-```
-make install-dev
-```

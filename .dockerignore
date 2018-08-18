@@ -1,7 +1,6 @@
 .git/
 .gitignore
 Makefile
-docker-compose*.yml
+docker-compose.yml
 README.md
-requirements-dev.txt
-env/
+tf/
