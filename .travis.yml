@@ -12,5 +12,6 @@ jobs:
       name: "Build and Push Docker Image"
       script: bash ./ci/docker_push
     - stage: "Deploy"
+      if: branch = master
       name: "Deploy using Terraform"
       script: bash ./ci/deploy
