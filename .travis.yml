@@ -1,34 +1,14 @@
-sudo: required
-
-language: python
-
-python:
-  - "3.6"
-
 services:
   - docker
-
-before_install:
-  - docker build -t c2/hello-world-api .
 
 jobs:
   include:
     - stage: "Tests"
       name: "Unit Tests"
-      script: docker run c2/hello-world-api python manage.py test
+      script: bash ./ci/deploy
     - stage: "Build"
       name: "Build and Push Docker Image"
       script: bash ./ci/docker_push
     - stage: "Deploy"
       name: "Deploy using Terraform"
       script: bash ./ci/deploy
-
-
-
-
-# before_install:
-#   - docker build -t c2/hello-world .
-#
-# script:
-#   - ./ci/test.sh
-#   - docker run c2/hello-world python manage.py test
